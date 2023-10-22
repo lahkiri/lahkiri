@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+</head>
+<body>
+    <h1>Welcome to the Chat App</h1>
+    <div id="chat-box" style="width: 400px; height: 300px; border: 1px solid #000; overflow: auto;"></div>
+    <input type="text" id="message" placeholder="Type a message...">
+    <button id="send">Send</button>
+
+    <script>
+        // قائمة بالرسائل
+        var messages = [];
+
+        // الوصول إلى عناصر الصفحة
+        var chatBox = document.getElementById("chat-box");
+        var messageInput = document.getElementById("message");
+        var sendButton = document.getElementById("send");
+
+        // دالة لإضافة رسالة إلى قائمة الرسائل وعرضها
+        function addMessage(message) {
+            messages.push(message);
+            chatBox.innerHTML += message + "<br>";
+        }
+
+        // عند النقر على زر "Send"
+        sendButton.onclick = function() {
+            var messageText = messageInput.value;
+            addMessage(messageText);
+            messageInput.value = "";
+        };
+
+        // استدعاء دالة addMessage لعرض رسالة افتراضية
+        addMessage("Hello, welcome to the chat!");
+    </script>
+</body>
+</html>
